@@ -3,7 +3,6 @@
  * Andy Sayler
  * CSCI 3308
  * Summer 2014
- *
  * This file containsunit tests for geometry.c
  *
  * Requires http://check.sourceforge.net/
@@ -65,6 +64,7 @@ START_TEST(test_2d_area_triangle)
 
     ck_assert(coord_2d_area_triangle(&a, &b, &c) == 0.0);
 
+    a.x = a.y = b.y = 0;
     b.x = 4;
     c.x = 4;
     c.y = 4;
