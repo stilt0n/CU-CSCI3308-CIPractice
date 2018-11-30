@@ -13,6 +13,10 @@ PKG_CHECK_LIBS = `pkg-config --libs check`
 
 all: geometry_test
 
+test: 
+	make
+	./geometry_test
+
 geometry_test: geometry_test.o geometry.o
 	$(CC) $(LFLAGS) $^ $(PKG_CHECK_LIBS) $(PKG_MATH_LIBS) -o $@
 
@@ -23,8 +27,8 @@ geometry.o: geometry.c geometry.h
 	$(CC) $(CFLAGS) $< -o $@
 
 dep:
+	sudo apt-get update
 	sudo apt-get install check
-
 clean:
 	$(RM) *.o
 	$(RM) geometry_test
